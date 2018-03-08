@@ -1,0 +1,48 @@
+@(employeeForm: Form[models.Employee], user: models.users.User)
+@import helper._
+
+@main("Add Employee",user) {
+    <p class="lead">Add a new Employee</p>
+    @form(action=routes.HomeController.addEmployeeSubmit(), 
+    'class -> "form-horizontal", 
+    'role -> "form",
+    'enctype -> "multipart/form-data") {
+        @* CSRF attack prevention *@
+        @CSRF.formField
+
+        @inputText(employeeForm("fname"), '_label -> "Forename", 'class -> "form-control")
+        @inputText(employeeForm("lname"), '_label -> "Surname", 'class -> "form-control")
+
+        @select(
+            employeeForm("department.id"),
+            options(Department.options),
+            '_label -> "Department", '_default -> "-- Choose a department --",
+            '_showConstraints -> false, 'class -> "form-control"
+        )
+        @select(
+            employeeForm("address.id"),
+            options(Address.options),
+            '_label -> "Address", '_default -> "-- Choose an address --",
+            '_showConstraints -> false, 'class -> "form-control"
+        )
+        <label>Projects</label><br>
+        @for((value,name) <- Project.options){
+            <input type = "checkbox" name="projSelect[]" value="@value"
+
+            /> @name<br>
+        }
+        
+
+        @inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")
+        
+        <label>Image Upload</label>
+        <input class="btn-sm btn-default" type="file" name="upload">
+        <br><br>
+        <div class="actions">
+            <input type="submit" value="Add Employee" class="btn btn-primary">
+            <a href="@routes.HomeController.index(0)">
+                <button type="button" class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}

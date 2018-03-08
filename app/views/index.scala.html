@@ -1,0 +1,73 @@
+@(employees: List[models.Employee], projects: List[models.Project], user: models.users.User,env: play.api.Environment)
+
+@main("employees",user) {
+
+<p class="lead">Employee Page</p>
+<br>
+<div class="row">
+  <div class="col-sm-2">
+
+    <h4>Projects</h4>
+    <div class="list-group">
+      <a href="@routes.HomeController.index(0)" class="list-group-item">All projects</a>
+      @for(p <- projects) {
+        <a href="@routes.HomeController.index(p.getId)" class="list-group-item">@p.getName
+          <span class="badge">@p.getEmployees.size()</span>
+        </a>
+      }
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <table class="table table-bordered table-hover table-condensed">
+      @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+          @flash.get("success")
+        </div>
+      }
+      <thead>
+        <tr>
+          <th></th>
+          <th>ID</th>
+          <th>Surname</th>
+          <th>Forename</th>
+          <th>Department</th>
+          <th colspan="2"></th>      
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(p<-employees) {
+          <tr>
+              @if(env.resource("public/images/employeeImages/thumbnails/" + p.getId + ".jpg").isDefined) {
+                <td><img src="/assets/images/employeeImages/thumbnails/@(p.getId + ".jpg")"/></td>
+            } else {
+                <td><img src="/assets/images/employeeImages/thumbnails/noImage.jpg"/></td>
+            }
+            <td class="numeric">@p.getId</td>
+            <td>@p.getLname</td>
+               <td>@p.getFname</td>
+                  
+            <td>@p.getDepartment.getName</td>
+            <td>
+              <a href="@routes.HomeController.updateEmployee(p.getId)" class="button xs btn-danger">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+            </td>        <td>
+              <a href="@routes.HomeController.deleteEmployee(p.getId)" class="button xs btn-danger" onclick="return confirmDel();">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+
+    <p>
+      <a href="@routes.HomeController.addEmployee()">
+        <button class="btn btn-primary">Add an Employee</button>
+      </a>
+    </p>
+  </div>
+</div>
+}

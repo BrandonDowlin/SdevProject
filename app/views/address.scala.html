@@ -1,0 +1,61 @@
+@(addresses: List[models.Address], user: models.users.User,env: play.api.Environment)
+
+@main("addresses",user) {
+
+<p class="lead">Address Page</p>
+<br>
+<div class="row">
+  <div class="col-sm-2"> 
+  </div>
+  <div class="col-sm-8">
+    <table class="table table-bordered table-hover table-condensed">
+      @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+          @flash.get("success")
+        </div>
+      }
+      <thead>
+        <tr>
+          <th>Address ID</th>
+          <th>Address</th>
+          <th>Employee</th>
+          <th>Department</th>
+          <th colspan="2"></th>      
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(a<-addresses) {
+          <tr>
+            <td class="numeric">@a.getId</td>
+            <td>@a.getAddress</td>
+            @if(a.getEmployee == null){
+                <td>N/A</td>
+                <td>N/A</td>
+            } else {
+            <td>@a.getEmployee.getLname, @a.getEmployee.getFname</td>
+            <td>@a.getEmployee.getDepartment.getName</td>
+            }
+            <td>
+              <a href="@routes.HomeController.updateAddress(a.getId)" class="button xs btn-danger">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+            </td>        <td>
+              <a href="@routes.HomeController.deleteAddress(a.getId)" class="button xs btn-danger" onclick="return confirmDel();">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </td>
+          </tr>
+        }
+      </tbody>
+
+    </table>
+
+    <p>
+      <a href="@routes.HomeController.addAddress()">
+        <button class="btn btn-primary">Add an Address</button>
+      </a>
+    </p>
+  </div>
+</div>
+}
