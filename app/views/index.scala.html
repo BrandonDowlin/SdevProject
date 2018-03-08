@@ -48,15 +48,24 @@
                <td>@p.getFname</td>
                   
             <td>@p.getDepartment.getName</td>
+            @if(user != null){
+            @if(user.getRole().equals("admin")){
+
+            
             <td>
+                
               <a href="@routes.HomeController.updateEmployee(p.getId)" class="button xs btn-danger">
-                <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  
+                
               </a>
             </td>        <td>
               <a href="@routes.HomeController.deleteEmployee(p.getId)" class="button xs btn-danger" onclick="return confirmDel();">
                 <span class="glyphicon glyphicon-trash"></span>
               </a>
             </td>
+          }
+        }
           </tr>
         }
       </tbody>

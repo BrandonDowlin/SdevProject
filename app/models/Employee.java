@@ -42,11 +42,13 @@ public class Employee extends Model {
         }
     
         // Constructor to initialise object
-        public Employee(Long id, String fname, String lname, Department department) {
+        public Employee(Long id, String fname, String lname, Department department, Address address) {
             this.id = id;
             this.fname = fname;
             this.lname = lname;
             this.department=department;
+            address.setEmployee(this);
+            
         }
         public List<Long> getProjSelect(){
             return this.projSelect;
@@ -84,6 +86,7 @@ public class Employee extends Model {
         public void setProjects(List<Project> projects) {
             this.projects = projects;
         }
+      
         
     }
     

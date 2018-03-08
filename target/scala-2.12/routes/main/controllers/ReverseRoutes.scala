@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SdevCA-master/conf/routes
-// @DATE:Thu Mar 08 16:13:58 GMT 2018
+// @DATE:Thu Mar 08 17:13:56 GMT 2018
 
 import play.api.mvc.Call
 
