@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SdevCA-master/conf/routes
-// @DATE:Thu Mar 08 17:13:56 GMT 2018
+// @SOURCE:/home/wdd/SdevProject/conf/routes
+// @DATE:Fri Mar 09 09:12:14 GMT 2018
 
 import play.api.mvc.Call
 
@@ -19,43 +19,51 @@ package controllers {
     }
 
   
-    // @LINE:18
+    // @LINE:7
+    def addressPage(): Call = {
+    
+      () match {
+      
+        // @LINE:7
+        case ()  =>
+          
+          Call("GET", _prefix + { _defaultPrefix } + "addressPage")
+      
+      }
+    
+    }
+  
+    // @LINE:19
     def updateEmployee(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:12
+    // @LINE:13
     def addEmployeeSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addEmployeeSubmit")
     }
   
-    // @LINE:7
-    def address(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "address")
-    }
-  
-    // @LINE:22
+    // @LINE:23
     def updateAddressSubmit(id:Long): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "updateAddressSubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:10
+    // @LINE:11
     def addAddress(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addAddress")
     }
   
-    // @LINE:16
+    // @LINE:17
     def deleteAddress(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "delAddress/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:15
+    // @LINE:16
     def deleteEmployee(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "delEmployee/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
@@ -67,25 +75,25 @@ package controllers {
       Call("GET", _prefix + play.core.routing.queryString(List(if(proj == 0L) None else Some(implicitly[play.api.mvc.QueryStringBindable[Long]].unbind("proj", proj)))))
     }
   
-    // @LINE:9
+    // @LINE:10
     def addEmployee(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "addEmployee")
     }
   
-    // @LINE:21
+    // @LINE:22
     def updateEmployeeSubmit(id:Long): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "updateEmployeeSubmit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:19
+    // @LINE:20
     def updateAddress(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "updateAddress/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
-    // @LINE:13
+    // @LINE:14
     def addAddressSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "addAddressSubmit")
@@ -93,26 +101,26 @@ package controllers {
   
   }
 
-  // @LINE:24
+  // @LINE:25
   class ReverseLoginController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:25
+    // @LINE:26
     def loginSubmit(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "loginSubmit")
     }
   
-    // @LINE:26
+    // @LINE:27
     def logout(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "logout")
     }
   
-    // @LINE:24
+    // @LINE:25
     def login(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "login")
@@ -120,14 +128,14 @@ package controllers {
   
   }
 
-  // @LINE:29
+  // @LINE:30
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:29
+    // @LINE:30
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

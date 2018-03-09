@@ -44,7 +44,7 @@ Seq[Any](format.raw/*1.78*/("""
         
     """),format.raw/*13.5*/("""<div class="actions">
         <input type="submit" value="Update Address" class="btn btn-primary">
-        <a href=""""),_display_(/*15.19*/routes/*15.25*/.HomeController.address()),format.raw/*15.50*/("""">
+        <a href=""""),_display_(/*15.19*/routes/*15.25*/.HomeController.addressPage()),format.raw/*15.54*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
@@ -66,10 +66,10 @@ Seq[Any](format.raw/*1.78*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Mar 08 17:16:44 GMT 2018
-                  SOURCE: /home/wdd/SdevCA-master/app/views/updateAddress.scala.html
-                  HASH: 941dc31fdc24fe744aabc6080439c266f2ea33b9
-                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1702->365|1810->452|1851->466|1995->583|2010->589|2056->614|2189->717|2221->719
+                  DATE: Fri Mar 09 09:08:43 GMT 2018
+                  SOURCE: /home/wdd/SdevProject/app/views/updateAddress.scala.html
+                  HASH: 86fcd4a8d6981e1c2b41e7b45965fde228967bb5
+                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1702->365|1810->452|1851->466|1995->583|2010->589|2060->618|2193->721|2225->723
                   LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|45->13|47->15|47->15|47->15|51->19|52->20
                   -- GENERATED --
               */

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SdevCA-master/conf/routes
-// @DATE:Thu Mar 08 17:13:56 GMT 2018
+// @SOURCE:/home/wdd/SdevProject/conf/routes
+// @DATE:Fri Mar 09 09:12:14 GMT 2018
 
 package controllers;
 

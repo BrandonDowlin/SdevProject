@@ -248,9 +248,9 @@ public class HomeController extends Controller {
 
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
-    public Result address() {
+    public Result addressPage() {
         List<Address> addressList = Address.findAll();
-        return ok(address.render(addressList, User.getUserById(session().get("email")),e));
+        return ok(addressPage.render(addressList, User.getUserById(session().get("email")),e));
     }
 
     @Security.Authenticated(Secured.class)
@@ -275,7 +275,7 @@ public class HomeController extends Controller {
     }
         flash("success", "Address " + newAddress.getAddress() + " has been created");
 
-        return redirect(controllers.routes.HomeController.index(0));
+        return redirect(controllers.routes.HomeController.addressPage());
     }
 
     @Security.Authenticated(Secured.class)
@@ -286,7 +286,7 @@ public class HomeController extends Controller {
 
         flash("success", "address has been deleted");
         
-        return redirect(routes.HomeController.index(0));
+        return redirect(routes.HomeController.addressPage());
     }
 
     @Security.Authenticated(Secured.class)
@@ -322,7 +322,7 @@ public class HomeController extends Controller {
             flash("success", "Address " +a.getAddress() + " has been  updated ");
             
             // Redirect to the index page
-            return redirect(controllers.routes.HomeController.index(0));
+            return redirect(controllers.routes.HomeController.addressPage());
         }
     }
 

@@ -4,7 +4,8 @@
 
 # An example controller showing a sample home page
 GET     /                            controllers.HomeController.index(proj:Long?=0L)
-GET     /address                     controllers.HomeController.address
+GET     /addressPage                 controllers.HomeController.addressPage
+GET     /address                 controllers.HomeController.addressPage
 
 GET     /addEmployee                 controllers.HomeController.addEmployee
 GET     /addAddress                  controllers.HomeController.addAddress
