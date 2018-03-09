@@ -42,12 +42,11 @@ public class Employee extends Model {
         }
     
         // Constructor to initialise object
-        public Employee(Long id, String fname, String lname, Department department, Address address) {
+        public Employee(Long id, String fname, String lname, Department department) {
             this.id = id;
             this.fname = fname;
             this.lname = lname;
             this.department=department;
-            address.setEmployee(this);
             
         }
         public List<Long> getProjSelect(){
@@ -87,6 +86,13 @@ public class Employee extends Model {
             this.projects = projects;
         }
       
-        
+        public static Map<String, String> options() {
+            LinkedHashMap<String, String> options = new LinkedHashMap();
+            for (Employee e: Employee.findAll()) {
+                options.put(e.getId().toString(), e.getLname());
+            }
+            
+            return options;
+        }
     }
     

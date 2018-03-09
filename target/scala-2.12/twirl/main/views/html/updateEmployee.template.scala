@@ -49,34 +49,28 @@ Seq[Any](format.raw/*1.80*/("""
             '_label -> "Department", '_default -> "-- Choose a department --",
             '_showConstraints -> false, 'class -> "form-control"
         )),format.raw/*19.10*/("""
-        """),_display_(/*20.10*/select(
-            updateEmployeeForm("address.id"),
-            options(Address.options),
-            '_label -> "Address", '_default -> "-- Choose an address --",
-            '_showConstraints -> false, 'class -> "form-control"
-        )),format.raw/*25.10*/("""
-        """),format.raw/*26.9*/("""<label>Projects</label><br>
-        """),_display_(/*27.10*/for((value,name) <- Project.options) yield /*27.46*/{_display_(Seq[Any](format.raw/*27.47*/("""
-            """),format.raw/*28.13*/("""<input type = "checkbox" name="projSelect[]" value=""""),_display_(/*28.66*/value),format.raw/*28.71*/(""""
-            """),_display_(/*29.14*/if(Project.inProject(value.toLong, id))/*29.53*/ {_display_(Seq[Any](format.raw/*29.55*/("""
-                """),format.raw/*30.17*/("""checked
-            """)))}),format.raw/*31.14*/("""
-            """),format.raw/*32.13*/("""/> """),_display_(/*32.17*/name),format.raw/*32.21*/("""<br>
-        """)))}),format.raw/*33.10*/("""
+        """),format.raw/*20.9*/("""<label>Projects</label><br>
+        """),_display_(/*21.10*/for((value,name) <- Project.options) yield /*21.46*/{_display_(Seq[Any](format.raw/*21.47*/("""
+            """),format.raw/*22.13*/("""<input type = "checkbox" name="projSelect[]" value=""""),_display_(/*22.66*/value),format.raw/*22.71*/(""""
+            """),_display_(/*23.14*/if(Project.inProject(value.toLong, id))/*23.53*/ {_display_(Seq[Any](format.raw/*23.55*/("""
+                """),format.raw/*24.17*/("""checked
+            """)))}),format.raw/*25.14*/("""
+            """),format.raw/*26.13*/("""/> """),_display_(/*26.17*/name),format.raw/*26.21*/("""<br>
+        """)))}),format.raw/*27.10*/("""
         
     
-    """),format.raw/*36.5*/("""<label>Image </label>
+    """),format.raw/*30.5*/("""<label>Image </label>
     <input class = "btn-sm btn-default" type="file" name="upload">
     <br><br>
 
     <div class="actions">
         <input type="submit" value="Update Employee" class="btn btn-primary">
-        <a href=""""),_display_(/*42.19*/routes/*42.25*/.HomeController.index(0)),format.raw/*42.49*/("""">
+        <a href=""""),_display_(/*36.19*/routes/*36.25*/.HomeController.index(0)),format.raw/*36.49*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
- """)))}),format.raw/*46.3*/("""
-""")))}),format.raw/*47.2*/("""
+ """)))}),format.raw/*40.3*/("""
+""")))}),format.raw/*41.2*/("""
 """))
       }
     }
@@ -93,11 +87,11 @@ Seq[Any](format.raw/*1.80*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 09 09:03:53 GMT 2018
+                  DATE: Fri Mar 09 10:52:15 GMT 2018
                   SOURCE: /home/wdd/SdevProject/app/views/updateEmployee.scala.html
-                  HASH: 18b5861956c95c383816ef33d408b2ae205e9453
-                  MATRIX: 995->1|1146->81|1191->79|1218->98|1255->127|1293->128|1320->129|1384->168|1532->308|1571->310|1603->343|1634->349|1646->353|1676->363|1709->370|1817->457|1854->467|1961->553|1999->564|2271->815|2308->825|2569->1065|2605->1074|2669->1111|2721->1147|2760->1148|2801->1161|2881->1214|2907->1219|2949->1234|2997->1273|3037->1275|3082->1292|3134->1313|3175->1326|3206->1330|3231->1334|3276->1348|3322->1367|3574->1592|3589->1598|3634->1622|3767->1725|3799->1727
-                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|44->12|44->12|46->14|51->19|52->20|57->25|58->26|59->27|59->27|59->27|60->28|60->28|60->28|61->29|61->29|61->29|62->30|63->31|64->32|64->32|64->32|65->33|68->36|74->42|74->42|74->42|78->46|79->47
+                  HASH: 3a150ca1c760fb39afe0d52e10216000b799b6be
+                  MATRIX: 995->1|1146->81|1191->79|1218->98|1255->127|1293->128|1320->129|1384->168|1532->308|1571->310|1603->343|1634->349|1646->353|1676->363|1709->370|1817->457|1854->467|1961->553|1999->564|2271->815|2307->824|2371->861|2423->897|2462->898|2503->911|2583->964|2609->969|2651->984|2699->1023|2739->1025|2784->1042|2836->1063|2877->1076|2908->1080|2933->1084|2978->1098|3024->1117|3276->1342|3291->1348|3336->1372|3469->1475|3501->1477
+                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|44->12|44->12|46->14|51->19|52->20|53->21|53->21|53->21|54->22|54->22|54->22|55->23|55->23|55->23|56->24|57->25|58->26|58->26|58->26|59->27|62->30|68->36|68->36|68->36|72->40|73->41
                   -- GENERATED --
               */
           

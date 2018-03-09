@@ -21,9 +21,10 @@ public class Address extends Model {
     public Address() {
     }
 
-    public Address(Long id, String address) {
+    public Address(Long id, String address, Employee employee) {
         this.id = id;
         this.address=address;
+        this.employee=employee;
     }
 
     public Long getId() {
@@ -54,19 +55,6 @@ public class Address extends Model {
         return Address.find.query().where().orderBy("id asc").findList();
     }
 
-    public static Map<String, String> options() {
-        LinkedHashMap<String, String> options = new LinkedHashMap();
-
-        for (Address a: Address.findAll()) {
-            if(a.getEmployee() != null){
-
-            } else {
-                options.put(a.getId().toString(), a.getAddress());
-            }
-            
-        }
-        
-        return options;
-    }
+    
 
 }

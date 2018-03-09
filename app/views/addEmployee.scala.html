@@ -19,12 +19,6 @@
             '_label -> "Department", '_default -> "-- Choose a department --",
             '_showConstraints -> false, 'class -> "form-control"
         )
-        @select(
-            employeeForm("address.id"),
-            options(Address.options),
-            '_label -> "Address", '_default -> "-- Choose an address --",
-            '_showConstraints -> false, 'class -> "form-control"
-        )
         <label>Projects</label><br>
         @for((value,name) <- Project.options){
             <input type = "checkbox" name="projSelect[]" value="@value"

@@ -43,15 +43,21 @@ Seq[Any](format.raw/*1.62*/("""
         """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
 
         """),_display_(/*13.10*/inputText(addressForm("address"), '_label -> "Address", 'class -> "form-control")),format.raw/*13.91*/("""
-        """),_display_(/*14.10*/inputText(addressForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*14.74*/("""
+        """),_display_(/*14.10*/select(
+            addressForm("employee.id"),
+            options(Employee.options),
+            '_label -> "Employee", '_default -> "-- Choose a employee --",
+            '_showConstraints -> false, 'class -> "form-control"
+        )),format.raw/*19.10*/("""
+        """),_display_(/*20.10*/inputText(addressForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*20.74*/("""
         
-        """),format.raw/*16.9*/("""<div class="actions">
+        """),format.raw/*22.9*/("""<div class="actions">
             <input type="submit" value="Add Address" class="btn btn-primary">
-            <a href=""""),_display_(/*18.23*/routes/*18.29*/.HomeController.addressPage()),format.raw/*18.58*/("""">
+            <a href=""""),_display_(/*24.23*/routes/*24.29*/.HomeController.addressPage()),format.raw/*24.58*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*22.6*/("""
+    """)))}),format.raw/*28.6*/("""
 """)))}))
       }
     }
@@ -68,11 +74,11 @@ Seq[Any](format.raw/*1.62*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 09 09:08:43 GMT 2018
+                  DATE: Fri Mar 09 10:53:04 GMT 2018
                   SOURCE: /home/wdd/SdevProject/app/views/addAddress.scala.html
-                  HASH: 4247fd4920370fd879978e213a7228962fb0cd16
-                  MATRIX: 985->1|1118->63|1163->61|1190->79|1217->81|1249->105|1288->107|1319->112|1387->155|1543->303|1582->305|1619->342|1656->352|1669->356|1700->366|1738->377|1840->458|1877->468|1962->532|2007->550|2156->672|2171->678|2221->707|2369->825
-                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|41->9|41->9|42->10|43->11|43->11|43->11|45->13|45->13|46->14|46->14|48->16|50->18|50->18|50->18|54->22
+                  HASH: 5344ac04debe62348cb526074b472387823944f1
+                  MATRIX: 985->1|1118->63|1163->61|1190->79|1217->81|1249->105|1288->107|1319->112|1387->155|1543->303|1582->305|1619->342|1656->352|1669->356|1700->366|1738->377|1840->458|1877->468|2134->704|2171->714|2256->778|2301->796|2450->918|2465->924|2515->953|2663->1071
+                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|41->9|41->9|42->10|43->11|43->11|43->11|45->13|45->13|46->14|51->19|52->20|52->20|54->22|56->24|56->24|56->24|60->28
                   -- GENERATED --
               */
           

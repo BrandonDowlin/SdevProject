@@ -11,6 +11,12 @@
         @CSRF.formField
 
         @inputText(addressForm("address"), '_label -> "Address", 'class -> "form-control")
+        @select(
+            addressForm("employee.id"),
+            options(Employee.options),
+            '_label -> "Employee", '_default -> "-- Choose a employee --",
+            '_showConstraints -> false, 'class -> "form-control"
+        )
         @inputText(addressForm("id"), '_label -> "", 'hidden -> "hidden")
         
         <div class="actions">

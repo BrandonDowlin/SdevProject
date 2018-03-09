@@ -41,15 +41,20 @@ Seq[Any](format.raw/*1.78*/("""
     """),_display_(/*9.6*/CSRF/*9.10*/.formField),format.raw/*9.20*/("""
 
     """),_display_(/*11.6*/inputText(updateAddressForm("address"), '_label -> "Address", 'class -> "form-control")),format.raw/*11.93*/("""
-        
-    """),format.raw/*13.5*/("""<div class="actions">
+    """),_display_(/*12.6*/select(
+        updateAddressForm("employee.id"),
+        options(Employee.options),
+        '_label -> "Employee", '_default -> "-- Choose a employee --",
+        '_showConstraints -> false, 'class -> "form-control"
+    )),format.raw/*17.6*/("""   
+    """),format.raw/*18.5*/("""<div class="actions">
         <input type="submit" value="Update Address" class="btn btn-primary">
-        <a href=""""),_display_(/*15.19*/routes/*15.25*/.HomeController.addressPage()),format.raw/*15.54*/("""">
+        <a href=""""),_display_(/*20.19*/routes/*20.25*/.HomeController.addressPage()),format.raw/*20.54*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
- """)))}),format.raw/*19.3*/("""
-""")))}),format.raw/*20.2*/("""
+ """)))}),format.raw/*24.3*/("""
+""")))}),format.raw/*25.2*/("""
 """))
       }
     }
@@ -66,11 +71,11 @@ Seq[Any](format.raw/*1.78*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 09 09:08:43 GMT 2018
+                  DATE: Fri Mar 09 10:52:15 GMT 2018
                   SOURCE: /home/wdd/SdevProject/app/views/updateAddress.scala.html
-                  HASH: 86fcd4a8d6981e1c2b41e7b45965fde228967bb5
-                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1702->365|1810->452|1851->466|1995->583|2010->589|2060->618|2193->721|2225->723
-                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|45->13|47->15|47->15|47->15|51->19|52->20
+                  HASH: 962cbd4eca0ca6c0ea6d3db0c007b0b21ac92247
+                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1702->365|1810->452|1842->458|2084->680|2119->688|2263->805|2278->811|2328->840|2461->943|2493->945
+                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|44->12|49->17|50->18|52->20|52->20|52->20|56->24|57->25
                   -- GENERATED --
               */
           
