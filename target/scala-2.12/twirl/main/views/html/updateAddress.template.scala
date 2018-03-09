@@ -47,14 +47,15 @@ Seq[Any](format.raw/*1.78*/("""
         '_label -> "Employee", '_default -> "-- Choose a employee --",
         '_showConstraints -> false, 'class -> "form-control"
     )),format.raw/*17.6*/("""   
-    """),format.raw/*18.5*/("""<div class="actions">
+    """),format.raw/*18.5*/("""<label>Caution, selecting an employee with an already assigned address will not work</label>
+    <div class="actions">
         <input type="submit" value="Update Address" class="btn btn-primary">
-        <a href=""""),_display_(/*20.19*/routes/*20.25*/.HomeController.addressPage()),format.raw/*20.54*/("""">
+        <a href=""""),_display_(/*21.19*/routes/*21.25*/.HomeController.addressPage()),format.raw/*21.54*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
     </div>
- """)))}),format.raw/*24.3*/("""
-""")))}),format.raw/*25.2*/("""
+ """)))}),format.raw/*25.3*/("""
+""")))}),format.raw/*26.2*/("""
 """))
       }
     }
@@ -71,11 +72,11 @@ Seq[Any](format.raw/*1.78*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 09 10:52:15 GMT 2018
+                  DATE: Fri Mar 09 11:28:12 GMT 2018
                   SOURCE: /home/wdd/SdevProject/app/views/updateAddress.scala.html
-                  HASH: 962cbd4eca0ca6c0ea6d3db0c007b0b21ac92247
-                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1702->365|1810->452|1842->458|2084->680|2119->688|2263->805|2278->811|2328->840|2461->943|2493->945
-                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|44->12|49->17|50->18|52->20|52->20|52->20|56->24|57->25
+                  HASH: 57355a4f9582e89003aea1176e3e2f8c979aa8ca
+                  MATRIX: 993->1|1142->79|1187->77|1214->96|1250->124|1288->125|1315->126|1378->164|1525->303|1564->305|1596->338|1627->344|1639->348|1669->358|1702->365|1810->452|1842->458|2084->680|2119->688|2360->902|2375->908|2425->937|2558->1040|2590->1042
+                  LINES: 28->1|31->2|34->1|35->3|35->3|35->3|36->4|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|44->12|49->17|50->18|53->21|53->21|53->21|57->25|58->26
                   -- GENERATED --
               */
           

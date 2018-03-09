@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/SdevProject/conf/routes
-// @DATE:Fri Mar 09 10:40:39 GMT 2018
+// @DATE:Fri Mar 09 11:21:14 GMT 2018
 
 
 package router {

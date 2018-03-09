@@ -15,6 +15,7 @@
         '_label -> "Employee", '_default -> "-- Choose a employee --",
         '_showConstraints -> false, 'class -> "form-control"
     )   
+    <label>Caution, selecting an employee with an already assigned address will not work</label>
     <div class="actions">
         <input type="submit" value="Update Address" class="btn btn-primary">
         <a href="@routes.HomeController.addressPage()">

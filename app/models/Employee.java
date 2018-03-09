@@ -89,7 +89,7 @@ public class Employee extends Model {
         public static Map<String, String> options() {
             LinkedHashMap<String, String> options = new LinkedHashMap();
             for (Employee e: Employee.findAll()) {
-                options.put(e.getId().toString(), e.getLname());
+                options.put(e.getId().toString(), String.format("%d, %s %s", e.getId(), e.getFname(), e.getLname()));
             }
             
             return options;
