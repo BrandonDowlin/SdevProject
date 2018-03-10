@@ -21,10 +21,9 @@ public class Department extends Model {
     public Department() {
     }
 
-    public Department(Long id, String name, List<Employee> employees) {
+    public Department(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.employees = employees;
     }
 
     public Long getId() {
@@ -54,7 +53,7 @@ public class Department extends Model {
     public static Finder<Long, Department> find = new Finder<Long, Department>(Department.class);
 
     public static List<Department> findAll() {
-        return Department.find.query().where().orderBy("name asc").findList();
+        return Department.find.query().where().orderBy("id asc").findList();
     }
 
     public static Map<String, String> options() {

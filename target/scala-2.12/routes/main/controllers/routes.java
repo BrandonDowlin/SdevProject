@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/SdevProject/conf/routes
-// @DATE:Fri Mar 09 11:32:40 GMT 2018
+// @SOURCE:/home/brandon/Documents/SdevProject/conf/routes
+// @DATE:Sat Mar 10 02:25:00 GMT 2018
 
 package controllers;
 

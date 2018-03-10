@@ -22,63 +22,69 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addEmployee extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.Employee],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object addEmployee extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[Form[models.Employee],Form[models.Address],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(employeeForm: Form[models.Employee], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(employeeForm: Form[models.Employee], addressForm: Form[models.Address], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*2.2*/import helper._
 
 
-Seq[Any](format.raw/*1.64*/("""
+Seq[Any](format.raw/*1.99*/("""
 """),format.raw/*3.1*/("""
 """),_display_(/*4.2*/main("Add Employee",user)/*4.27*/ {_display_(Seq[Any](format.raw/*4.29*/("""
-    """),format.raw/*5.5*/("""<p class="lead">Add a new Employee</p>
+    """),format.raw/*5.5*/("""<p class="lead">Add a new employee</p>
     """),_display_(/*6.6*/form(action=routes.HomeController.addEmployeeSubmit(), 
     'class -> "form-horizontal", 
     'role -> "form",
     'enctype -> "multipart/form-data")/*9.39*/ {_display_(Seq[Any](format.raw/*9.41*/("""
         """),format.raw/*10.37*/("""
         """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
+        """),format.raw/*12.9*/("""<container>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+        """),_display_(/*15.10*/inputText(employeeForm("fname"), '_label -> "Name", 'class -> "form-control")),format.raw/*15.87*/("""
+        """),_display_(/*16.10*/inputText(employeeForm("lname"), '_label -> "Surname", 'class -> "form-control")),format.raw/*16.90*/(""" 
+        """),format.raw/*17.9*/("""<label>Projects</label><br>
+        """),_display_(/*18.10*/for((value, name) <- Project.options) yield /*18.47*/ {_display_(Seq[Any](format.raw/*18.49*/("""
+            """),format.raw/*19.13*/("""<input type="checkbox" name="projSelect[]" value=""""),_display_(/*19.64*/value),format.raw/*19.69*/(""""
 
-        """),_display_(/*13.10*/inputText(employeeForm("fname"), '_label -> "Forename", 'class -> "form-control")),format.raw/*13.91*/("""
-        """),_display_(/*14.10*/inputText(employeeForm("lname"), '_label -> "Surname", 'class -> "form-control")),format.raw/*14.90*/("""
-
-        """),_display_(/*16.10*/select(
-            employeeForm("department.id"),
-            options(Department.options),
-            '_label -> "Department", '_default -> "-- Choose a department --",
-            '_showConstraints -> false, 'class -> "form-control"
-        )),format.raw/*21.10*/("""
-        """),format.raw/*22.9*/("""<label>Projects</label><br>
-        """),_display_(/*23.10*/for((value,name) <- Project.options) yield /*23.46*/{_display_(Seq[Any](format.raw/*23.47*/("""
-            """),format.raw/*24.13*/("""<input type = "checkbox" name="projSelect[]" value=""""),_display_(/*24.66*/value),format.raw/*24.71*/(""""
-
-            /> """),_display_(/*26.17*/name),format.raw/*26.21*/("""<br>
-        """)))}),format.raw/*27.10*/("""
+            /> """),_display_(/*21.17*/name),format.raw/*21.21*/(""" """),format.raw/*21.22*/("""<br>
+        """)))}),format.raw/*22.10*/("""
+        """),format.raw/*23.9*/("""<br><br>
+        """),_display_(/*24.10*/select(
+        employeeForm("department.id"), 
+        options(Department.options), '_label -> "Department", '_default -> "-- Choose a department --", 
+        '_showConstraints -> false, 'class -> "form-control"
+        )),format.raw/*28.10*/("""
         
+        """),_display_(/*30.10*/inputText(addressForm("street"), '_label -> "Address", 'class -> "form-control")),format.raw/*30.90*/("""
+        """),_display_(/*31.10*/inputText(addressForm("county"), '_label -> "County", 'class -> "form-control")),format.raw/*31.89*/("""
 
-        """),_display_(/*30.10*/inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*30.75*/("""
+        """),_display_(/*33.10*/inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*33.75*/("""
+        """),_display_(/*34.10*/inputText(addressForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*34.74*/("""
         
-        """),format.raw/*32.9*/("""<label>Image Upload</label>
+        """),format.raw/*36.9*/("""<label>Image Upload</label>
         <input class="btn-sm btn-default" type="file" name="upload">
         <br><br>
         <div class="actions">
             <input type="submit" value="Add Employee" class="btn btn-primary">
-            <a href=""""),_display_(/*37.23*/routes/*37.29*/.HomeController.index(0)),format.raw/*37.53*/("""">
+            <a href=""""),_display_(/*41.23*/routes/*41.29*/.HomeController.index(0)),format.raw/*41.53*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    """)))}),format.raw/*41.6*/("""
+    </div>
+    </container>
+    """)))}),format.raw/*47.6*/("""
 """)))}))
       }
     }
   }
 
-  def render(employeeForm:Form[models.Employee],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(employeeForm,user)
+  def render(employeeForm:Form[models.Employee],addressForm:Form[models.Address],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(employeeForm,addressForm,user)
 
-  def f:((Form[models.Employee],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (employeeForm,user) => apply(employeeForm,user)
+  def f:((Form[models.Employee],Form[models.Address],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (employeeForm,addressForm,user) => apply(employeeForm,addressForm,user)
 
   def ref: this.type = this
 
@@ -87,11 +93,11 @@ Seq[Any](format.raw/*1.64*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 09 11:32:40 GMT 2018
-                  SOURCE: /home/wdd/SdevProject/app/views/addEmployee.scala.html
-                  HASH: dfd7142d41679a9735a93f8bccabd9b361f3051a
-                  MATRIX: 987->1|1122->65|1167->63|1194->81|1221->83|1254->108|1293->110|1324->115|1393->159|1550->308|1589->310|1626->347|1663->357|1676->361|1707->371|1745->382|1847->463|1884->473|1985->553|2023->564|2289->809|2325->818|2389->855|2441->891|2480->892|2521->905|2601->958|2627->963|2673->982|2698->986|2743->1000|2790->1020|2876->1085|2921->1103|3193->1348|3208->1354|3253->1378|3401->1496
-                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|41->9|41->9|42->10|43->11|43->11|43->11|45->13|45->13|46->14|46->14|48->16|53->21|54->22|55->23|55->23|55->23|56->24|56->24|56->24|58->26|58->26|59->27|62->30|62->30|64->32|69->37|69->37|69->37|73->41
+                  DATE: Sat Mar 10 02:23:24 GMT 2018
+                  SOURCE: /home/brandon/Documents/SdevProject/app/views/addEmployee.scala.html
+                  HASH: 9403aec3d8d52deb821647f8a88f3a824a2d8594
+                  MATRIX: 1008->1|1178->100|1223->98|1250->116|1277->118|1310->143|1349->145|1380->150|1449->194|1606->343|1645->345|1682->382|1719->392|1732->396|1763->406|1799->415|1923->512|2021->589|2058->599|2159->679|2196->689|2260->726|2313->763|2353->765|2394->778|2472->829|2498->834|2544->853|2569->857|2598->858|2643->872|2679->881|2724->899|2968->1122|3014->1141|3115->1221|3152->1231|3252->1310|3290->1321|3376->1386|3413->1396|3498->1460|3543->1478|3815->1723|3830->1729|3875->1753|4051->1899
+                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|41->9|41->9|42->10|43->11|43->11|43->11|44->12|47->15|47->15|48->16|48->16|49->17|50->18|50->18|50->18|51->19|51->19|51->19|53->21|53->21|53->21|54->22|55->23|56->24|60->28|62->30|62->30|63->31|63->31|65->33|65->33|66->34|66->34|68->36|73->41|73->41|73->41|79->47
                   -- GENERATED --
               */
           

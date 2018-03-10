@@ -1,31 +1,35 @@
-@(id: Long, updateEmployeeForm: Form[models.Employee], user: models.users.User)
+@(id: Long, updateEmployeeForm: Form[models.Employee], updateAddressForm: Form[models.Address], user: models.users.User)
+
 @import helper._
-@main("Update employee", user){
+
+@main("Update employee", user) {
+    
 <p class="lead"> Update Employee</p>
 
 @form(action=routes.HomeController.updateEmployeeSubmit(id), 'class -> "form-horizontal", 
 'role -> "form",'enctype -> "multipart/form-data") {
     @* CSRF attack prevention *@
     @CSRF.formField
-
-    @inputText(updateEmployeeForm("fname"), '_label -> "Forename", 'class -> "form-control")
-        @inputText(updateEmployeeForm("lname"), '_label -> "Surname", 'class -> "form-control")
-
-        @select(
-            updateEmployeeForm("department.id"),
-            options(Department.options),
-            '_label -> "Department", '_default -> "-- Choose a department --",
-            '_showConstraints -> false, 'class -> "form-control"
-        )
+    <container>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+        @inputText(updateEmployeeForm("fname"), '_label -> "Name", 'class -> "form-control")
+        @inputText(updateEmployeeForm("lname"), '_label -> "Surname", 'class -> "form-control") 
         <label>Projects</label><br>
-        @for((value,name) <- Project.options){
-            <input type = "checkbox" name="projSelect[]" value="@value"
-            @if(Project.inProject(value.toLong, id)) {
-                checked
-            }
-            /> @name<br>
+        @for((value, name) <- Project.options) {
+            <input type="checkbox" name="projSelect[]" value="@value"
+
+            /> @name <br>
         }
+        <br><br>
+        @select(
+        updateEmployeeForm("department.id"), 
+        options(Department.options), '_label -> "Department", '_default -> "-- Choose a department --", 
+        '_showConstraints -> false, 'class -> "form-control"
+        )
         
+        @inputText(updateAddressForm("street"), '_label -> "Address", 'class -> "form-control")
+        @inputText(updateAddressForm("county"), '_label -> "County", 'class -> "form-control")
     
     <label>Image </label>
     <input class = "btn-sm btn-default" type="file" name="upload">
@@ -36,6 +40,8 @@
         <a href="@routes.HomeController.index(0)">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
+        </div>
     </div>
+    </container>
  }
 }

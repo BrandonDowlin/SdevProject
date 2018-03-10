@@ -13,18 +13,18 @@ public class Address extends Model {
     private Long id;
     
     @Constraints.Required
-    private String address;
+    private String street;
 
-    @OneToOne
-    private Employee employee;
+    @Constraints.Required
+    private String county;
 
     public Address() {
     }
 
-    public Address(Long id, String address, Employee employee) {
+    public Address(Long id, String street, String county) {
         this.id = id;
-        this.address=address;
-        this.employee=employee;
+        this.street=street;
+        this.county=county;
     }
 
     public Long getId() {
@@ -35,18 +35,18 @@ public class Address extends Model {
         this.id = id;
     }
 
-    public String getAddress(){
-        return this.address;
+    public String getStreet(){
+        return this.street;
     }
-    public void setAddress(String address){
-        this.address=address;
+    public void setStreet(String street){
+        this.street=street;
     }
 
-    public void setEmployee(Employee employee){
-        this.employee=employee;
+    public void setCounty(String county){
+        this.county=county;
     }
-    public Employee getEmployee(){
-        return this.employee;
+    public String getCounty(){
+        return this.county;
     }
 
     public static Finder<Long, Address> find = new Finder<Long, Address>(Address.class);

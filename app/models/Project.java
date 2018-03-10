@@ -15,6 +15,12 @@ public class Project extends Model {
     @Constraints.Required
     private String name;
 
+    @Constraints.Required
+    private String description;
+
+    @Constraints.Required
+    private String deadline;
+
     @ManyToMany(cascade = CascadeType.ALL)
     public List<Employee> employees;
 
@@ -72,5 +78,19 @@ public class Project extends Model {
         .eq("id" , project)
         .findCount() > 0;
     } 
+
+    public void setDescription(String description){
+        this.description=description;
+    }
+    public String getDescription(){
+        return this.description;
+    }
+
+    public void setDeadline(String deadline){
+        this.deadline=deadline;
+    }
+    public String getDeadline(){
+        return this.deadline;
+    }
 
 }

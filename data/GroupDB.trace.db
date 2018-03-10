@@ -1,3 +1,6 @@
-2018-03-09 11:32:59 jdbc[4]: exception
+2018-03-09 23:03:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PLAY_EVOLUTIONS" not found; SQL statement:
+update play_evolutions set state = 'applied' where state = 'applying_up' and id = 2 [42102-193]
+2018-03-09 23:04:00 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLException: Table "PLAY_EVOLUTIONS" not found; SQL statement:
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-193]

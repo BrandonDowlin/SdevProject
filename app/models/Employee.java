@@ -26,6 +26,9 @@ public class Employee extends Model {
         @Constraints.Required
         @ManyToOne
         private Department department;
+
+        @OneToOne
+        private Address address;
        
 
         public List<Long> projSelect = new ArrayList<Long>();
@@ -33,20 +36,19 @@ public class Employee extends Model {
         public static final Finder<Long, Employee> find = new Finder<>(Employee.class);
     
 
-        public static final List<Employee> findAll() { 
-            
-                    return Employee.find.all();
+        public static List<Employee> findAll() {
+            return Employee.find.query().where().orderBy("id asc").findList();
         }
+
         // Default Constructor
         public Employee() {
         }
     
         // Constructor to initialise object
-        public Employee(Long id, String fname, String lname, Department department) {
+        public Employee(Long id, String fname, String lname) {
             this.id = id;
             this.fname = fname;
             this.lname = lname;
-            this.department=department;
             
         }
         public List<Long> getProjSelect(){
@@ -81,18 +83,14 @@ public class Employee extends Model {
         public List<Project> getProjects() {
             return projects;
         }
-    
         public void setProjects(List<Project> projects) {
             this.projects = projects;
         }
-      
-        public static Map<String, String> options() {
-            LinkedHashMap<String, String> options = new LinkedHashMap();
-            for (Employee e: Employee.findAll()) {
-                options.put(e.getId().toString(), String.format("%d, %s %s", e.getId(), e.getFname(), e.getLname()));
-            }
-            
-            return options;
+        public void setAddress(Address address){
+            this.address=address;
+        }
+        public Address getAddress(){
+            return this.address;
         }
     }
     

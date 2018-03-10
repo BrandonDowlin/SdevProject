@@ -1,0 +1,29 @@
+@(id: Long, updateProjectForm: Form[models.Project], user: models.users.User)
+
+@import helper._
+
+@main("Update employee", user) {
+    
+<p class="lead"> Update Project</p>
+
+@form(action=routes.HomeController.updateProjectSubmit(id), 'class -> "form-horizontal", 
+'role -> "form",'enctype -> "multipart/form-data") {
+    @* CSRF attack prevention *@
+    @CSRF.formField
+    <container>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                    @inputText(updateProjectForm("name"), '_label -> "Name", 'class -> "form-control")
+                    @inputText(updateProjectForm("description"), '_label -> "Description", 'class -> "form-control")
+                    @inputText(updateProjectForm("deadline"), '_label -> "Deadline", 'class -> "form-control")
+
+    <div class="actions">
+        <input type="submit" value="Update Project" class="btn btn-primary">
+        <a href="@routes.HomeController.projectsPage()">
+            <button type="button" class="btn btn-warning">Cancel</button>
+        </a>
+        </div>
+    </div>
+    </container>
+ }
+}
