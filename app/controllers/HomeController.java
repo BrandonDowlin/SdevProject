@@ -139,6 +139,8 @@ public class HomeController extends Controller {
             // Retrieve the submitted form object (bind from the HTTP request)
             Form<Address> updateAddressForm = formFactory.form(Address.class).bindFromRequest();
             Form<Employee> updateEmployeeForm = formFactory.form(Employee.class).bindFromRequest();
+                List<Project> newProjs = new ArrayList<Project>();
+                List<Employee> newEmps = new ArrayList<Employee>();
     
             // Check for errors (based on constraints set in the Employee class)
             if (updateEmployeeForm.hasErrors() || updateAddressForm.hasErrors()) {
@@ -151,11 +153,14 @@ public class HomeController extends Controller {
                 e.setId(id);
                 a.setId(Employee.find.byId(id).getAddress().getId());
                 
-                List<Project> newProjs = new ArrayList<Project>();
+                
                 for (Long proj : e.getProjSelect()) {
                     newProjs.add(Project.find.byId(proj));
+                    newEmps.add(Employee.find.byId(id));
+                    
                 }
-                e.projects = newProjs;
+                e.setProjects(newProjs);
+                
                 
                 //update (save) this employee
                 a.update();
@@ -428,7 +433,6 @@ public class HomeController extends Controller {
             User u;
             Form<User> userForm;
             List<String> roleList = User.options();
-            String pass = User.find.byId(id).getPassword();
     
             try {
                 u = User.find.byId(id);
@@ -437,7 +441,7 @@ public class HomeController extends Controller {
             catch (Exception ex) {
                 return badRequest("error");
             }
-            return ok(updateUser.render(id, userForm, User.getUserById(session().get("email")), roleList, pass));
+            return ok(updateUser.render(id, userForm, User.getUserById(session().get("email")), roleList));
         }
         public Result updateUserSubmit(String id) {
         
@@ -448,8 +452,7 @@ public class HomeController extends Controller {
             if (updateUserForm.hasErrors()) {
                 // Display the form again by returning a bad request
                 List<String> roleList = User.options();
-                String pass = User.find.byId(id).getPassword();
-                return badRequest(updateUser.render(id,updateUserForm, User.getUserById(session().get("email")), roleList, pass));
+                return badRequest(updateUser.render(id,updateUserForm, User.getUserById(session().get("email")), roleList));
             }   
                 User u = updateUserForm.get();
                 u.setEmail(id);

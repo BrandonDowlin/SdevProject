@@ -1,4 +1,4 @@
-@(id: String, updateUserForm: Form[models.users.User], user: models.users.User, roleList: List[String], pass: String)
+@(id: String, updateUserForm: Form[models.users.User], user: models.users.User, roleList: List[String])
 @import helper._
 
 @main("Update User",user) {
@@ -21,7 +21,6 @@
         '_showConstraints -> false, 'class -> "form-control"
         )
         @inputPassword(updateUserForm("password"), '_label -> "Password", 'class -> "form-control")
-        <label>Previous Password: @pass</label>
             }
         }
         

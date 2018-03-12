@@ -88,3 +88,7 @@ run
 clean
 run
 exit
+clean
+run
+exiot
+exit
