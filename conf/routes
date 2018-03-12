@@ -3,23 +3,37 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                            controllers.HomeController.index(proj:Long?=0L)
-GET     /addEmployee                 controllers.HomeController.addEmployee
-POST    /addEmployeeSubmit           controllers.HomeController.addEmployeeSubmit
-GET     /delEmployee/:id             controllers.HomeController.deleteEmployee(id: Long)
-GET     /updateEmployee/:id          controllers.HomeController.updateEmployee(id: Long)
-POST    /updateEmployeeSubmit/:id    controllers.HomeController.updateEmployeeSubmit(id: Long)
+GET     /                               controllers.HomeController.index(proj:Long?=0L)
+GET     /addEmployee                    controllers.HomeController.addEmployee
+POST    /addEmployeeSubmit              controllers.HomeController.addEmployeeSubmit
+GET     /delEmployee/:id                controllers.HomeController.deleteEmployee(id: Long)
+GET     /updateEmployee/:id             controllers.HomeController.updateEmployee(id: Long)
+POST    /updateEmployeeSubmit/:id       controllers.HomeController.updateEmployeeSubmit(id: Long)
 
-GET     /projectsPage                controllers.HomeController.projectsPage
-GET     /addProject                  controllers.HomeController.addProject
-GET     /delProject/:id              controllers.HomeController.deleteProject(id: Long)
-GET     /updateProject/:id           controllers.HomeController.updateProject(id: Long)
-POST    /addProjectSubmit            controllers.HomeController.addProjectSubmit
-POST    /updateProjectSubmit/:id     controllers.HomeController.updateProjectSubmit(id: Long)
+GET     /projectsPage                   controllers.HomeController.projectsPage
+GET     /addProject                     controllers.HomeController.addProject
+GET     /delProject/:id                 controllers.HomeController.deleteProject(id: Long)
+GET     /updateProject/:id              controllers.HomeController.updateProject(id: Long)
+POST    /addProjectSubmit               controllers.HomeController.addProjectSubmit
+POST    /updateProjectSubmit/:id        controllers.HomeController.updateProjectSubmit(id: Long)
 
-GET     /login                       controllers.LoginController.login
-POST    /loginSubmit                 controllers.LoginController.loginSubmit
-GET     /logout                      controllers.LoginController.logout
+GET     /departmentsPage                controllers.HomeController.departmentsPage
+GET     /addDepartment                  controllers.HomeController.addDepartment
+GET     /delDepartment/:id              controllers.HomeController.deleteDepartment(id: Long)
+GET     /updateDepartment/:id           controllers.HomeController.updateDepartment(id: Long)
+POST    /addDepartmentSubmit            controllers.HomeController.addDepartmentSubmit
+POST    /updateDepartmentSubmit/:id     controllers.HomeController.updateDepartmentSubmit(id: Long)
+
+GET     /usersPage                      controllers.HomeController.usersPage
+GET     /addUser                        controllers.HomeController.addUser
+GET     /delUser/:id                    controllers.HomeController.deleteUser(id: String)
+GET     /updateUser/:id                 controllers.HomeController.updateUser(id: String)
+POST    /addUserSubmit                  controllers.HomeController.addUserSubmit
+POST    /updateUserSubmit/:id           controllers.HomeController.updateUserSubmit(id: String)
+
+GET     /login                          controllers.LoginController.login
+POST    /loginSubmit                    controllers.LoginController.loginSubmit
+GET     /logout                         controllers.LoginController.logout
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file                controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file                   controllers.Assets.versioned(path="/public", file: Asset)

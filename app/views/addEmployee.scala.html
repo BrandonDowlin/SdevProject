@@ -2,16 +2,15 @@
 @import helper._
 
 @main("Add Employee",user) {
-    <p class="lead">Add a new employee</p>
+    <p class="lead">Add a new Employee</p>
+    <div class="col-xs-5">
     @form(action=routes.HomeController.addEmployeeSubmit(), 
     'class -> "form-horizontal", 
     'role -> "form",
     'enctype -> "multipart/form-data") {
         @* CSRF attack prevention *@
         @CSRF.formField
-        <container>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
+        
         @inputText(employeeForm("fname"), '_label -> "Name", 'class -> "form-control")
         @inputText(employeeForm("lname"), '_label -> "Surname", 'class -> "form-control") 
         <label>Projects</label><br>
@@ -42,7 +41,6 @@
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    </div>
-    </container>
     }
+</div>
 }

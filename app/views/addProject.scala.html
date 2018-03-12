@@ -2,17 +2,14 @@
 @import helper._
 
 @main("Add Project",user) {
-    <p class="lead">Add a new project</p>
+    <p class="lead">Add a new Project</p>
+    <div class="col-xs-5">
     @form(action=routes.HomeController.addProjectSubmit(), 
     'class -> "form-horizontal", 
     'role -> "form",
     'enctype -> "multipart/form-data") {
         @* CSRF attack prevention *@
         @CSRF.formField
-        <container>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-
         @inputText(projectForm("name"), '_label -> "Name", 'class -> "form-control")
         @inputText(projectForm("description"), '_label -> "Description", 'class -> "form-control")
         @inputText(projectForm("deadline"), '_label -> "Deadline", 'class -> "form-control")
@@ -25,7 +22,6 @@
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    </div>
-    </container>
     }
+</div>
 }

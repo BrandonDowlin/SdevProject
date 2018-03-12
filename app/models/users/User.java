@@ -13,7 +13,7 @@ public class User extends Model {
     private String email;
 
     @Constraints.Required
-    private String role;    
+    private String role = "user";    
 
     @Constraints.Required
     private String name;
@@ -77,6 +77,14 @@ public class User extends Model {
         }
     }
 
-    
+    public static List<String> options() {
+        List<String> options = new ArrayList<>();
+            options.add("admin");
+            options.add("manager");
+            options.add("user");
+        
+        
+        return options;
+    }
 
 }

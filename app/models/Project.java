@@ -60,7 +60,7 @@ public class Project extends Model {
     public static Finder<Long, Project> find = new Finder<Long, Project>(Project.class);
 
     public static List<Project> findAll() {
-        return Project.find.query().where().orderBy("name asc").findList();
+        return Project.find.query().where().orderBy("id asc").findList();
     }
 
     public static Map<String, String> options() {

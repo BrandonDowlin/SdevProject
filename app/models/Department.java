@@ -15,7 +15,7 @@ public class Department extends Model {
     @Constraints.Required
     private String name;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Employee> employees;
 
     public Department() {

@@ -38,7 +38,7 @@ Seq[Any](format.raw/*1.58*/("""
 
 <head>
     <meta charset="utf-8">
-    <title>Online Shop - """),_display_(/*9.27*/title),format.raw/*9.32*/("""</title>
+    <title>Sdev Project - """),_display_(/*9.28*/title),format.raw/*9.33*/("""</title>
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -50,7 +50,7 @@ Seq[Any](format.raw/*1.58*/("""
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Online Shop</a>
+                <a class="navbar-brand" href="/">Sdev Project</a>
             </div>
 
             <ul class="nav navbar-nav">
@@ -58,26 +58,29 @@ Seq[Any](format.raw/*1.58*/("""
                 <li """),_display_(/*26.22*/if(title=="employees" )/*26.45*/{_display_(Seq[Any](format.raw/*26.46*/("""class="active"""")))}),format.raw/*26.61*/(""">
                     <a href="/">Employees</a>
                 </li>
-
-                <li """),_display_(/*30.22*/if(title=="projects" )/*30.44*/{_display_(Seq[Any](format.raw/*30.45*/("""class="active"""")))}),format.raw/*30.60*/(""">
+                """),_display_(/*29.18*/if(user != null)/*29.34*/{_display_(Seq[Any](format.raw/*29.35*/("""
+                    """),_display_(/*30.22*/if(user.getRole() == "admin" || user.getRole() == "manager")/*30.82*/{_display_(Seq[Any](format.raw/*30.83*/("""
+                """),format.raw/*31.17*/("""<li """),_display_(/*31.22*/if(title=="departments" )/*31.47*/{_display_(Seq[Any](format.raw/*31.48*/("""class="active"""")))}),format.raw/*31.63*/(""">
+                    <a href="/departmentsPage">Departments</a>
+                </li>
+                <li """),_display_(/*34.22*/if(title=="projects" )/*34.44*/{_display_(Seq[Any](format.raw/*34.45*/("""class="active"""")))}),format.raw/*34.60*/(""">
                     <a href="/projectsPage">Projects</a>
                 </li>
-
-                <li>
-                    <a href="#">Services</a>
+                <li """),_display_(/*37.22*/if(title=="users" )/*37.41*/{_display_(Seq[Any](format.raw/*37.42*/("""class="active"""")))}),format.raw/*37.57*/(""">
+                    <a href="/usersPage">Users</a>
                 </li>
+            """)))}),format.raw/*40.14*/("""
+        """)))}),format.raw/*41.10*/("""
 
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-                <li """),_display_(/*41.22*/if(title=="Login")/*41.40*/{_display_(Seq[Any](format.raw/*41.41*/("""class="active"""")))}),format.raw/*41.56*/(""">
-                    """),_display_(/*42.22*/if(user != null)/*42.38*/ {_display_(Seq[Any](format.raw/*42.40*/("""
-                        """),format.raw/*43.25*/("""<a href=""""),_display_(/*43.35*/routes/*43.41*/.LoginController.logout()),format.raw/*43.66*/("""">Logout """),_display_(/*43.76*/user/*43.80*/.getName()),format.raw/*43.90*/("""</a>
-                    """)))}/*44.23*/else/*44.28*/{_display_(Seq[Any](format.raw/*44.29*/("""
-                        """),format.raw/*45.25*/("""<a href=""""),_display_(/*45.35*/routes/*45.41*/.LoginController.login()),format.raw/*45.65*/("""">Login</a>
-                    """)))}),format.raw/*46.22*/("""
+                
+                """),format.raw/*44.17*/("""<li """),_display_(/*44.22*/if(title=="Login")/*44.40*/{_display_(Seq[Any](format.raw/*44.41*/("""class="active"""")))}),format.raw/*44.56*/(""">
+                    """),_display_(/*45.22*/if(user != null)/*45.38*/ {_display_(Seq[Any](format.raw/*45.40*/("""
+                        """),format.raw/*46.25*/("""<a href=""""),_display_(/*46.35*/routes/*46.41*/.LoginController.logout()),format.raw/*46.66*/("""">Logout """),_display_(/*46.76*/user/*46.80*/.getName()),format.raw/*46.90*/("""</a>
+                    """)))}/*47.23*/else/*47.28*/{_display_(Seq[Any](format.raw/*47.29*/("""
+                        """),format.raw/*48.25*/("""<a href=""""),_display_(/*48.35*/routes/*48.41*/.LoginController.login()),format.raw/*48.65*/("""">Login</a>
+                    """)))}),format.raw/*49.22*/("""
 
-                """),format.raw/*48.17*/("""</li>
+                """),format.raw/*51.17*/("""</li>
             </ul>
 
         </div>
@@ -87,8 +90,8 @@ Seq[Any](format.raw/*1.58*/("""
     <container>
         <row>
             <div class="col-md-12">
-                """),_display_(/*58.18*/content),format.raw/*58.25*/("""
-            """),format.raw/*59.13*/("""</div>
+                """),_display_(/*61.18*/content),format.raw/*61.25*/("""
+            """),format.raw/*62.13*/("""</div>
         </row>
     </container>
 <br>
@@ -96,13 +99,11 @@ Seq[Any](format.raw/*1.58*/("""
         <footer>
         <row>
             <div class="col-md-12">
-                Copyright
-                <strong>Online Shop</strong>
             </div>
         </row>
     </footer>
     </container>
-    <script src=""""),_display_(/*73.19*/routes/*73.25*/.Assets.versioned("javascripts/main.js")),format.raw/*73.65*/(""""></script>
+    <script src=""""),_display_(/*74.19*/routes/*74.25*/.Assets.versioned("javascripts/main.js")),format.raw/*74.65*/(""""></script>
 </body>
 
 </html>
@@ -122,11 +123,11 @@ Seq[Any](format.raw/*1.58*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 10 02:23:24 GMT 2018
-                  SOURCE: /home/brandon/Documents/SdevProject/app/views/main.scala.html
-                  HASH: 1054117370277e2a1b6996f5d63623d99b5e788f
-                  MATRIX: 970->1|1121->57|1149->59|1270->154|1295->159|1507->344|1522->350|1584->391|1915->695|1947->718|1986->719|2032->734|2151->826|2182->848|2221->849|2267->864|2573->1143|2600->1161|2639->1162|2685->1177|2735->1200|2760->1216|2800->1218|2853->1243|2890->1253|2905->1259|2951->1284|2988->1294|3001->1298|3032->1308|3077->1335|3090->1340|3129->1341|3182->1366|3219->1376|3234->1382|3279->1406|3343->1439|3389->1457|3552->1593|3580->1600|3621->1613|3929->1894|3944->1900|4005->1940
-                  LINES: 28->1|33->1|35->3|41->9|41->9|45->13|45->13|45->13|58->26|58->26|58->26|58->26|62->30|62->30|62->30|62->30|73->41|73->41|73->41|73->41|74->42|74->42|74->42|75->43|75->43|75->43|75->43|75->43|75->43|75->43|76->44|76->44|76->44|77->45|77->45|77->45|77->45|78->46|80->48|90->58|90->58|91->59|105->73|105->73|105->73
+                  DATE: Mon Mar 12 03:19:50 GMT 2018
+                  SOURCE: /home/brandon/Desktop/SdevProject/app/views/main.scala.html
+                  HASH: 26d7d22c3978f77b9bb4ebf5efaf38b64f3914a6
+                  MATRIX: 970->1|1121->57|1149->59|1271->155|1296->160|1508->345|1523->351|1585->392|1917->697|1949->720|1988->721|2034->736|2148->823|2173->839|2212->840|2261->862|2330->922|2369->923|2414->940|2446->945|2480->970|2519->971|2565->986|2700->1094|2731->1116|2770->1117|2816->1132|2945->1234|2973->1253|3012->1254|3058->1269|3177->1357|3218->1367|3281->1402|3313->1407|3340->1425|3379->1426|3425->1441|3475->1464|3500->1480|3540->1482|3593->1507|3630->1517|3645->1523|3691->1548|3728->1558|3741->1562|3772->1572|3817->1599|3830->1604|3869->1605|3922->1630|3959->1640|3974->1646|4019->1670|4083->1703|4129->1721|4292->1857|4320->1864|4361->1877|4598->2087|4613->2093|4674->2133
+                  LINES: 28->1|33->1|35->3|41->9|41->9|45->13|45->13|45->13|58->26|58->26|58->26|58->26|61->29|61->29|61->29|62->30|62->30|62->30|63->31|63->31|63->31|63->31|63->31|66->34|66->34|66->34|66->34|69->37|69->37|69->37|69->37|72->40|73->41|76->44|76->44|76->44|76->44|76->44|77->45|77->45|77->45|78->46|78->46|78->46|78->46|78->46|78->46|78->46|79->47|79->47|79->47|80->48|80->48|80->48|80->48|81->49|83->51|93->61|93->61|94->62|106->74|106->74|106->74
                   -- GENERATED --
               */
           

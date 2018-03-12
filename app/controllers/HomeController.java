@@ -6,8 +6,7 @@ import play.api.Environment;
 import play.data.*;
 import play.db.ebean.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import javax.inject.Inject;
 
 import play.mvc.Http.*;
@@ -112,12 +111,6 @@ public class HomeController extends Controller {
     
             flash("success", "Employee has been deleted");
             
-            return redirect(routes.HomeController.index(0));
-        }
-        public Result deleteDepartment(Long id) {
-            Department.find.ref(id).delete();
-            flash("success", "Department has been deleted");
-    
             return redirect(routes.HomeController.index(0));
         }
 
@@ -328,9 +321,160 @@ public class HomeController extends Controller {
             
             return redirect(routes.HomeController.projectsPage());
         }
+        @Security.Authenticated(Secured.class)
+        @With(AuthAdmin.class)
         public Result projectsPage() {
             List<Project> projectList = Project.findAll();
             return ok(projectsPage.render(projectList, User.getUserById(session().get("email")),e));
+        }
+
+        @Security.Authenticated(Secured.class)
+        @With(AuthAdmin.class)
+        public Result addDepartment() {
+            Form<Department> departmentForm = formFactory.form(Department.class);
+            return ok(addDepartment.render(departmentForm, User.getUserById(session().get("email"))));
+        }
+        public Result addDepartmentSubmit() {
+            Department newDepartment;
+            Form<Department> newDepartmentForm = formFactory.form(Department.class).bindFromRequest();
+    
+            if (newDepartmentForm.hasErrors()){
+                return badRequest(addDepartment.render(newDepartmentForm, User.getUserById(session().get("email"))));
+            }
+            else {
+                newDepartment = newDepartmentForm.get();
+                newDepartment.save();
+            }
+            flash("success", "Department " + newDepartment.getName() + " has been created");
+    
+            return redirect(controllers.routes.HomeController.departmentsPage());
+        }
+        @Security.Authenticated(Secured.class)
+        @With(AuthAdmin.class)
+        @Transactional
+        public Result updateDepartment(Long id) {
+            Department d;
+            Form<Department> departmentForm;
+    
+            try {
+                d = Department.find.byId(id);
+                departmentForm = formFactory.form(Department.class).fill(d);
+            } 
+            catch (Exception ex) {
+                return badRequest("error");
+            }
+            return ok(updateDepartment.render(id, departmentForm, User.getUserById(session().get("email"))));
+        }
+        public Result updateDepartmentSubmit(Long id) {
+        
+            // Retrieve the submitted form object (bind from the HTTP request)
+            Form<Department> updateDepartmentForm = formFactory.form(Department.class).bindFromRequest();
+    
+            // Check for errors (based on constraints set in the Employee class)
+            if (updateDepartmentForm.hasErrors()) {
+                // Display the form again by returning a bad request
+                return badRequest(updateDepartment.render(id,updateDepartmentForm, User.getUserById(session().get("email"))));
+            }   
+                Department d = updateDepartmentForm.get();
+                d.setId(id);
+                //update (save) this employee
+                d.update();    
+                flash("success", "Department " + d.getName() + " has been  updated ");
+                
+                // Redirect to the index page
+                return redirect(controllers.routes.HomeController.departmentsPage());
+            }
+        @Security.Authenticated(Secured.class)
+        @With(AuthAdmin.class)
+        @Transactional
+        public Result deleteDepartment(Long id) {
+            Department.find.ref(id).delete();
+    
+            flash("success", "Department has been deleted");
+            
+            return redirect(routes.HomeController.departmentsPage());
+        }
+        @Security.Authenticated(Secured.class)
+        @With(AuthAdmin.class)
+        public Result departmentsPage() {
+            List<Department> departmentList = Department.findAll();
+            return ok(departmentsPage.render(departmentList, User.getUserById(session().get("email")),e));
+        }
+
+
+        public Result addUser() {
+            Form<User> userForm = formFactory.form(User.class);
+            List<String> roleList = User.options();
+            return ok(addUser.render(userForm, User.getUserById(session().get("email")), roleList));
+        }
+        public Result addUserSubmit() {
+            User newUser;
+            Form<User> newUserForm = formFactory.form(User.class).bindFromRequest();
+    
+            if (newUserForm.hasErrors()){
+                List<String> roleList = User.options();
+                return badRequest(addUser.render(newUserForm, User.getUserById(session().get("email")), roleList));
+            }
+            else {
+                newUser = newUserForm.get();
+                newUser.save();
+            }
+            flash("success", "User " + newUser.getName() + " has been created");
+    
+            return redirect(controllers.routes.HomeController.usersPage());
+        }
+        @Transactional
+        public Result updateUser(String id) {
+            User u;
+            Form<User> userForm;
+            List<String> roleList = User.options();
+            String pass = User.find.byId(id).getPassword();
+    
+            try {
+                u = User.find.byId(id);
+                userForm = formFactory.form(User.class).fill(u);
+            } 
+            catch (Exception ex) {
+                return badRequest("error");
+            }
+            return ok(updateUser.render(id, userForm, User.getUserById(session().get("email")), roleList, pass));
+        }
+        public Result updateUserSubmit(String id) {
+        
+            // Retrieve the submitted form object (bind from the HTTP request)
+            Form<User> updateUserForm = formFactory.form(User.class).bindFromRequest();
+    
+            // Check for errors (based on constraints set in the Employee class)
+            if (updateUserForm.hasErrors()) {
+                // Display the form again by returning a bad request
+                List<String> roleList = User.options();
+                String pass = User.find.byId(id).getPassword();
+                return badRequest(updateUser.render(id,updateUserForm, User.getUserById(session().get("email")), roleList, pass));
+            }   
+                User u = updateUserForm.get();
+                u.setEmail(id);
+                //update (save) this employee
+                u.update();    
+                flash("success", "User " + u.getName() + " has been  updated ");
+                
+                // Redirect to the index page
+                return redirect(controllers.routes.HomeController.usersPage());
+            }
+        @Security.Authenticated(Secured.class)
+        @With(AuthAdmin.class)
+        @Transactional
+        public Result deleteUser(String id) {
+            User.find.ref(id).delete();
+    
+            flash("success", "User has been deleted");
+            
+            return redirect(routes.HomeController.usersPage());
+        }
+        @Security.Authenticated(Secured.class)
+        @With(AuthAdmin.class)
+        public Result usersPage() {
+            List<User> userList = User.findAll();
+            return ok(usersPage.render(userList, User.getUserById(session().get("email")),e));
         }
         
     }

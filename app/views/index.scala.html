@@ -53,7 +53,11 @@
             <td>@p.getLname, @p.getFname</td>
                <td>@p.getAddress.getStreet</td>
                   <td>@p.getAddress.getCounty</td>
-            <td>@p.getDepartment.getName</td>
+                  @if(p.getDepartment != null){
+                    <td>@p.getDepartment.getName</td>
+                  } else {
+                    <td>Unassigned</td>
+                  }
             @if(user != null){
             @if(user.getRole().equals("admin")){
 
@@ -84,18 +88,18 @@
   <div class="col-sm-2">
     <h4>Admin Control</h4>
     <div class="list-group">
-        <a href="@routes.HomeController.addEmployee()" class="list-group-item">
-            <span class="">Add an Employee</span>
+      <a href="@routes.HomeController.addEmployee()" class="list-group-item">
+        <span class="">Add an Employee</span>
+      </a>
+      <a href="@routes.HomeController.addDepartment()" class="list-group-item">
+          <span class="">Add a Department</span>
+        </a>
+        <a href="@routes.HomeController.addProject()" class="list-group-item">
+            <span class="">Add a Project</span>
           </a>
-          <a href="@routes.HomeController.addEmployee()" class="list-group-item">
-              <span class="">Add a Department</span>
+          <a href="@routes.HomeController.addUser()" class="list-group-item">
+              <span class="">Add a User</span>
             </a>
-            <a href="@routes.HomeController.addProject()" class="list-group-item">
-                <span class="">Add a Project</span>
-              </a>
-              <a href="@routes.HomeController.addEmployee()" class="list-group-item">
-                  <span class="">Add a User</span>
-                </a>
     </div>
   </div>
     }

@@ -34,31 +34,27 @@ object updateProject extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.
 Seq[Any](format.raw/*1.78*/("""
 
 """),format.raw/*4.1*/("""
-"""),_display_(/*5.2*/main("Update employee", user)/*5.31*/ {_display_(Seq[Any](format.raw/*5.33*/("""
+"""),_display_(/*5.2*/main("Update Project", user)/*5.30*/ {_display_(Seq[Any](format.raw/*5.32*/("""
     
 """),format.raw/*7.1*/("""<p class="lead"> Update Project</p>
-
+<div class="col-xs-5">
 """),_display_(/*9.2*/form(action=routes.HomeController.updateProjectSubmit(id), 'class -> "form-horizontal", 
 'role -> "form",'enctype -> "multipart/form-data")/*10.51*/ {_display_(Seq[Any](format.raw/*10.53*/("""
     """),format.raw/*11.33*/("""
     """),_display_(/*12.6*/CSRF/*12.10*/.formField),format.raw/*12.20*/("""
-    """),format.raw/*13.5*/("""<container>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                    """),_display_(/*16.22*/inputText(updateProjectForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*16.103*/("""
-                    """),_display_(/*17.22*/inputText(updateProjectForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*17.117*/("""
-                    """),_display_(/*18.22*/inputText(updateProjectForm("deadline"), '_label -> "Deadline", 'class -> "form-control")),format.raw/*18.111*/("""
+                    """),_display_(/*13.22*/inputText(updateProjectForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*13.103*/("""
+                    """),_display_(/*14.22*/inputText(updateProjectForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*14.117*/("""
+                    """),_display_(/*15.22*/inputText(updateProjectForm("deadline"), '_label -> "Deadline", 'class -> "form-control")),format.raw/*15.111*/("""
 
-    """),format.raw/*20.5*/("""<div class="actions">
+    """),format.raw/*17.5*/("""<div class="actions">
         <input type="submit" value="Update Project" class="btn btn-primary">
-        <a href=""""),_display_(/*22.19*/routes/*22.25*/.HomeController.projectsPage()),format.raw/*22.55*/("""">
+        <a href=""""),_display_(/*19.19*/routes/*19.25*/.HomeController.projectsPage()),format.raw/*19.55*/("""">
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
         </div>
-    </div>
-    </container>
- """)))}),format.raw/*28.3*/("""
-""")))}),format.raw/*29.2*/("""
+ """)))}),format.raw/*23.3*/("""
+"""),format.raw/*24.1*/("""</div>
+""")))}),format.raw/*25.2*/("""
 """))
       }
     }
@@ -75,11 +71,11 @@ Seq[Any](format.raw/*1.78*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 10 02:32:20 GMT 2018
-                  SOURCE: /home/brandon/Documents/SdevProject/app/views/updateProject.scala.html
-                  HASH: 4480480aecf65102682dc2377b2f8ebc53fb9b89
-                  MATRIX: 993->1|1142->80|1187->77|1215->96|1242->98|1279->127|1318->129|1350->135|1413->173|1561->312|1601->314|1634->347|1666->353|1679->357|1710->367|1742->372|1878->481|1981->562|2030->584|2147->679|2196->701|2307->790|2340->796|2484->913|2499->919|2550->949|2715->1084|2747->1086
-                  LINES: 28->1|31->3|34->1|36->4|37->5|37->5|37->5|39->7|41->9|42->10|42->10|43->11|44->12|44->12|44->12|45->13|48->16|48->16|49->17|49->17|50->18|50->18|52->20|54->22|54->22|54->22|60->28|61->29
+                  DATE: Mon Mar 12 04:37:55 GMT 2018
+                  SOURCE: /home/brandon/Desktop/SdevProject/app/views/updateProject.scala.html
+                  HASH: 100151e7d9653ea1dd4cbde4ce1aed8b9a3c24da
+                  MATRIX: 993->1|1142->80|1187->77|1215->96|1242->98|1278->126|1317->128|1349->134|1434->194|1582->333|1622->335|1655->368|1687->374|1700->378|1731->388|1780->410|1883->491|1932->513|2049->608|2098->630|2209->719|2242->725|2386->842|2401->848|2452->878|2589->985|2617->986|2655->994
+                  LINES: 28->1|31->3|34->1|36->4|37->5|37->5|37->5|39->7|41->9|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|46->14|46->14|47->15|47->15|49->17|51->19|51->19|51->19|55->23|56->24|57->25
                   -- GENERATED --
               */
           

@@ -1,3 +1,27 @@
 .numeric {
-    text-align: right;
+    text-align: centre;
+}
+body{
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-color: white;
+    color: #23272A;
+}
+table{
+    background-color: white;
+    color: #23272A;
+    font-size: 1em;
+	border: .4em solid #23272A;
+    border-radius: .4em;
+    border-collapse: collapse;
+}
+thead{
+    background-color: #23272A;
+    color: white;
+}
+.project{
+    color:red;
+    font-size:1.5em;
+	border: .2em solid white;
+	border-radius: .4em;
 }

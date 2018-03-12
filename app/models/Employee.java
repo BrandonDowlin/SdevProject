@@ -23,11 +23,10 @@ public class Employee extends Model {
         @Constraints.Required
         private String lname;
         
-        @Constraints.Required
         @ManyToOne
         private Department department;
 
-        @OneToOne
+        @OneToOne(cascade = CascadeType.REMOVE)
         private Address address;
        
 

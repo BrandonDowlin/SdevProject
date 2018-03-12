@@ -5,14 +5,11 @@
 @main("Update employee", user) {
     
 <p class="lead"> Update Employee</p>
-
+<div class="col-xs-5">
 @form(action=routes.HomeController.updateEmployeeSubmit(id), 'class -> "form-horizontal", 
 'role -> "form",'enctype -> "multipart/form-data") {
     @* CSRF attack prevention *@
     @CSRF.formField
-    <container>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
         @inputText(updateEmployeeForm("fname"), '_label -> "Name", 'class -> "form-control")
         @inputText(updateEmployeeForm("lname"), '_label -> "Surname", 'class -> "form-control") 
         <label>Projects</label><br>
@@ -41,7 +38,6 @@
             <button type="button" class="btn btn-warning">Cancel</button>
         </a>
         </div>
-    </div>
-    </container>
  }
+</div>
 }

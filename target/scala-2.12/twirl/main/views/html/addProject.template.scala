@@ -34,32 +34,28 @@ object addProject extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api
 Seq[Any](format.raw/*1.62*/("""
 """),format.raw/*3.1*/("""
 """),_display_(/*4.2*/main("Add Project",user)/*4.26*/ {_display_(Seq[Any](format.raw/*4.28*/("""
-    """),format.raw/*5.5*/("""<p class="lead">Add a new project</p>
-    """),_display_(/*6.6*/form(action=routes.HomeController.addProjectSubmit(), 
+    """),format.raw/*5.5*/("""<p class="lead">Add a new Project</p>
+    <div class="col-xs-5">
+    """),_display_(/*7.6*/form(action=routes.HomeController.addProjectSubmit(), 
     'class -> "form-horizontal", 
     'role -> "form",
-    'enctype -> "multipart/form-data")/*9.39*/ {_display_(Seq[Any](format.raw/*9.41*/("""
-        """),format.raw/*10.37*/("""
-        """),_display_(/*11.10*/CSRF/*11.14*/.formField),format.raw/*11.24*/("""
-        """),format.raw/*12.9*/("""<container>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
+    'enctype -> "multipart/form-data")/*10.39*/ {_display_(Seq[Any](format.raw/*10.41*/("""
+        """),format.raw/*11.37*/("""
+        """),_display_(/*12.10*/CSRF/*12.14*/.formField),format.raw/*12.24*/("""
+        """),_display_(/*13.10*/inputText(projectForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*13.85*/("""
+        """),_display_(/*14.10*/inputText(projectForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*14.99*/("""
+        """),_display_(/*15.10*/inputText(projectForm("deadline"), '_label -> "Deadline", 'class -> "form-control")),format.raw/*15.93*/("""
 
-        """),_display_(/*16.10*/inputText(projectForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*16.85*/("""
-        """),_display_(/*17.10*/inputText(projectForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*17.99*/("""
-        """),_display_(/*18.10*/inputText(projectForm("deadline"), '_label -> "Deadline", 'class -> "form-control")),format.raw/*18.93*/("""
-
-        """),_display_(/*20.10*/inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*20.74*/("""
+        """),_display_(/*17.10*/inputText(projectForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*17.74*/("""
         
-        """),format.raw/*22.9*/("""<div class="actions">
+        """),format.raw/*19.9*/("""<div class="actions">
             <input type="submit" value="Add Project" class="btn btn-primary">
-            <a href=""""),_display_(/*24.23*/routes/*24.29*/.HomeController.projectsPage()),format.raw/*24.59*/("""">
+            <a href=""""),_display_(/*21.23*/routes/*21.29*/.HomeController.projectsPage()),format.raw/*21.59*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
             </a>
         </div>
-    </div>
-    </container>
-    """)))}),format.raw/*30.6*/("""
+    """)))}),format.raw/*25.6*/("""
+"""),format.raw/*26.1*/("""</div>
 """)))}))
       }
     }
@@ -76,11 +72,11 @@ Seq[Any](format.raw/*1.62*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 10 02:32:20 GMT 2018
-                  SOURCE: /home/brandon/Documents/SdevProject/app/views/addProject.scala.html
-                  HASH: c4f7a4055f9d33508fbd9306197b2014e29c959f
-                  MATRIX: 985->1|1118->63|1163->61|1190->79|1217->81|1249->105|1288->107|1319->112|1387->155|1543->303|1582->305|1619->342|1656->352|1669->356|1700->366|1736->375|1861->473|1957->548|1994->558|2104->647|2141->657|2245->740|2283->751|2368->815|2413->833|2562->955|2577->961|2628->991|2804->1137
-                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|41->9|41->9|42->10|43->11|43->11|43->11|44->12|48->16|48->16|49->17|49->17|50->18|50->18|52->20|52->20|54->22|56->24|56->24|56->24|62->30
+                  DATE: Mon Mar 12 04:37:55 GMT 2018
+                  SOURCE: /home/brandon/Desktop/SdevProject/app/views/addProject.scala.html
+                  HASH: 2ad6cb7bf5ef8fb66d80c02f5c961367db2e5ef1
+                  MATRIX: 985->1|1118->63|1163->61|1190->79|1217->81|1249->105|1288->107|1319->112|1414->182|1571->330|1611->332|1648->369|1685->379|1698->383|1729->393|1766->403|1862->478|1899->488|2009->577|2046->587|2150->670|2188->681|2273->745|2318->763|2467->885|2482->891|2533->921|2681->1039|2709->1040
+                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|39->7|42->10|42->10|43->11|44->12|44->12|44->12|45->13|45->13|46->14|46->14|47->15|47->15|49->17|49->17|51->19|53->21|53->21|53->21|57->25|58->26
                   -- GENERATED --
               */
           

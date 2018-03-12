@@ -1,0 +1,84 @@
+@(users: List[models.users.User], user: models.users.User,env: play.api.Environment)
+
+@main("users",user) {
+
+<p class="lead">Users Page</p>
+<br>
+<div class="row">
+  <div class="col-sm-2">
+  </div>
+  
+  <div class="col-sm-8">
+    <table class="table table-bordered table-hover table-condensed">
+      @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+          @flash.get("success")
+        </div>
+      }
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          @if(user != null){
+            @if(user.getRole() == "admin"){
+            <th colspan="2">Edit</th>
+            }
+          }      
+        </tr>
+      </thead>
+
+      <tbody>
+        @for(u<-users) {
+          <tr>
+            <td>@u.getName</td>
+            <td>@u.getEmail</td>
+            <td>@u.getRole</td>
+            @if(user != null){
+            @if(user.getRole().equals("admin")){
+
+            
+            <td>
+                
+              <a href="@routes.HomeController.updateUser(u.getEmail)" class="button xs btn-danger">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                  
+                
+              </a>
+            </td>        <td>
+              <a href="@routes.HomeController.deleteUser(u.getEmail)" class="button xs btn-danger" onclick="return confirmDel();">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </td>
+          }
+        }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  
+  @if(user != null){
+    @if(user.getRole() == "admin"){
+  
+  <div class="col-sm-2">
+    <h4>Admin Control</h4>
+    <div class="list-group">
+        <a href="@routes.HomeController.addEmployee()" class="list-group-item">
+            <span class="">Add an Employee</span>
+          </a>
+          <a href="@routes.HomeController.addDepartment()" class="list-group-item">
+              <span class="">Add a Department</span>
+            </a>
+            <a href="@routes.HomeController.addProject()" class="list-group-item">
+                <span class="">Add a Project</span>
+              </a>
+              <a href="@routes.HomeController.addUser()" class="list-group-item">
+                  <span class="">Add a User</span>
+                </a>
+    </div>
+  </div>
+    }
+  }
+</div>
+}

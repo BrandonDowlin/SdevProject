@@ -2,7 +2,7 @@
 @import helper._
 
 @main("Login", user) {
-    <p class="lead">Product Catalogue</p>
+    <p class="lead"></p>
     <div class="col-xs-5">
         <h3>Sign in</h3>
         @if(loginForm.hasGlobalErrors) {
@@ -29,6 +29,7 @@
                 'class -> "form-control input-xs", 'placeholder -> "Password")
             </div>
             <div class="form-group">
+                <label>Don't have an account? <a href="@routes.HomeController.addUser()">Sign Up</a></label><br>
                 <input type="submit" value="Sign In" class="btn btn-primary">
             </div>
         }
